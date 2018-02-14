@@ -1,0 +1,28 @@
+{
+  "name": "tokr-server-api",
+  "version": "1.0.0",
+  "description": "Server api to use in both, mobile app and administration tool",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "8.5.0"
+  },
+  "author": "Leonel Menezes",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "expect": "^21.2.1",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "lodash": "^4.17.4",
+    "mocha": "^4.0.1",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.13.2",
+    "supertest": "^3.0.0",
+    "validator": "^9.1.1"
+  }
+}

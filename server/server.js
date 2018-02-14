@@ -1,0 +1,32 @@
+require('./config/config')
+const _ = require('lodash')
+const express = require('express')
+const bodyParser = require('body-parser')
+const path = require('path')
+const {ObjectID} = require('mongodb')
+var {mongoose} = require('./db/mongoose')
+const users = require('./routers/users')
+const teachers = require('./routers/teachers')
+const students = require('./routers/students')
+const classes = require('./routers/classes')
+
+let port = process.env.PORT
+let app = express()
+
+app.use(bodyParser.json())
+
+app.use('/users', users)
+app.use('/teachers', teachers)
+app.use('/students', students)
+app.use('/classes', classes)
+
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
+})
+
+var http = require('http')
+setInterval(() => {
+  http.get('http://photoappchallenge.herokuapp.com/challenges')
+}, 300000)
+
+module.exports = {app}
