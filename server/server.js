@@ -27,6 +27,7 @@ app.listen(port, () => {
 var http = require('http')
 setInterval(() => {
   http.get('https://tokr-server-api.herokuapp.com/')
+  http.get('https://tokr-webapp.herokuapp.com/')
 }, 300000)
 
 module.exports = {app}
