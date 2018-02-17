@@ -13,8 +13,7 @@ const cors = require('cors')
 
 let port = process.env.PORT
 let app = express()
-
-app.use(cors());
+app.options('*', cors())
 
 app.use(bodyParser.json())
 
