@@ -69,7 +69,7 @@ let getById = (req, res) => {
 let addStudent = async (req, res) => {
     try {
         const body = _.pick(req.body, ['email','password', 'name', 'cpf','birthDate', 'sex', 'instruments', 'cellPhone', 'address', 'musicStyles'])
-        const student = new Class(body)
+        const student = new Student(body)
         await student.save()
         const token = await student.generateAuthToken()
         res.header('x-auth', token).send({student})
