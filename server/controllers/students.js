@@ -11,8 +11,8 @@ const {Student} = require('./../model/student')
 
 let getAll = (req, res) => {
     
-    Student.find().then((student) => {
-        res.send({student})
+    Student.find().then((students) => {
+        res.send({students})
     }, (error) => {
         res.status(400).send(error)
     })
