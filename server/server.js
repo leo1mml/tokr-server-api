@@ -12,8 +12,7 @@ const classes = require('./routers/classes')
 
 let port = process.env.PORT
 let app = express()
- 
-app.use(bodyParser.json())
+
 app.use(function (req, res, next) {
 
   // Website you wish to allow to connect
@@ -32,6 +31,8 @@ app.use(function (req, res, next) {
   // Pass to next layer of middleware
   next();
 });
+
+app.use(bodyParser.json())
 
 app.use('/users', users)
 app.use('/teachers', teachers)
