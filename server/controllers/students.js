@@ -21,7 +21,7 @@ let getAll = (req, res) => {
 let patchMe = async (req, res) => {
     let id = req.student._id
     console.log(id);
-    var body = _.pick(req.body, ['cpf','birthDate', 'sex', 'instruments', 'cellPhone', 'address', 'musicStyles'])
+    var body = _.pick(req.body, ['name','cpf','birthDate', 'sex', 'instruments', 'cellPhone', 'address', 'musicStyles'])
     if(!ObjectID.isValid(id)){
         return res.status(404).send()
     }
