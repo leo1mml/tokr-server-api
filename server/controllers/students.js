@@ -7,11 +7,11 @@ const {mongoose} = require('./../db/mongoose')
 const {authenticate} = require('./../middleware/authenticate')
 
 // Created Modules
-const {Class} = require('./../model/student')
+const {Student} = require('./../model/student')
 
 let getAll = (req, res) => {
     
-    Class.find().then((student) => {
+    Student.find().then((student) => {
         res.send({student})
     }, (error) => {
         res.status(400).send(error)
