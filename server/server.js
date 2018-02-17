@@ -12,7 +12,7 @@ const classes = require('./routers/classes')
 
 let port = process.env.PORT
 let app = express()
-
+ 
 app.use(bodyParser.json())
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', "http://localhost:3000");
