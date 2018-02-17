@@ -12,9 +12,6 @@ const {Student} = require('./../model/student')
 let getAll = (req, res) => {
     
     Student.find().then((students) => {
-        res.writeHead(200, 'app is registered', {
-            'Access-Control-Allow-Origin': 'http://localhost:3000/'
-        })
         res.send({students})
     }, (error) => {
         res.status(400).send(error)
