@@ -14,6 +14,7 @@ let getAll = (req, res) => {
     Student.find().then((students) => {
         res.send({students})
     }, (error) => {
+        console.log(error);
         res.status(400).send(error)
     })
 }
