@@ -16,7 +16,8 @@ let app = express()
 
 app.use(cors({
   exposedHeaders: ['Content-Length', 'app-pass', 'x-auth'],
-  origin: '*' 
+  origin: '*',
+  preflightContinue: true
 }));
 
 app.use(bodyParser.json())
