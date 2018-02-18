@@ -13,6 +13,11 @@ const classes = require('./routers/classes')
 let port = process.env.PORT
 let app = express()
 
+app.use(cors({
+  exposedHeaders: ['Content-Length', 'app-pass', 'x-auth'],
+  origin: 'http://localhost:3000'
+}));
+
 app.use(bodyParser.json())
 
 app.use('/users', users)
