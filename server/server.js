@@ -16,7 +16,7 @@ let app = express()
 
 app.use(cors({
   exposedHeaders: ['Content-Length', 'app-pass', 'x-auth'],
-  origin: 'http://localhost:3000'
+  origin: '*'
 }));
 
 app.use(bodyParser.json())
