@@ -9,11 +9,9 @@ const users = require('./routers/users')
 const teachers = require('./routers/teachers')
 const students = require('./routers/students')
 const classes = require('./routers/classes')
-const cors = require('cors')
 
 let port = process.env.PORT
 let app = express()
-app.options('*', cors())
 
 app.use(bodyParser.json())
 
