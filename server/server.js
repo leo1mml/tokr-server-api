@@ -14,13 +14,19 @@ const cors = require('cors')
 let port = process.env.PORT
 let app = express()
 
-app.use(cors({
-  exposedHeaders: ['Content-Length', 'app-pass', 'x-auth'],
-  origin: '*',
-  preflightContinue: true
-}));
 
 app.use(bodyParser.json())
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin','*')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, app-pass, x-auth')
+  if(req.method === 'OPTIONS'){
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, GET, DELETE')
+    return res.status(200).json({})
+  }
+  next()
+});
+
 
 app.use('/users', users)
 app.use('/teachers', teachers)
