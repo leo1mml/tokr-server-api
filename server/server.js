@@ -41,7 +41,7 @@ app.listen(port, () => {
 
 var http = require('http')
 setInterval(() => {
-  http.get('tokr-server-api.herokuapp.com/index.html')
+  http.get('http://tokr-server-api.herokuapp.com/index.html')
 }, 300000)
 
 module.exports = {app}
