@@ -9,7 +9,9 @@ const StudentSchema = mongoose.Schema({
         type: String,
         validate: {
             validator: (value) => {
-                return cpfValidator.isCPF(value)
+                var numsStr = string.replace(/[^0-9]/g,'');
+                var strNum = parseInt(numsStr);
+                return cpfValidator.isCPF(strNum)
             }
         },
         required: true

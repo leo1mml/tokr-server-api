@@ -9,7 +9,6 @@ const users = require('./routers/users')
 const teachers = require('./routers/teachers')
 const students = require('./routers/students')
 const classes = require('./routers/classes')
-const cors = require('cors')
 const publicPath = path.join(__dirname, '../public');
 
 let port = process.env.PORT
