@@ -27,7 +27,10 @@ var UserSchema = new mongoose.Schema({
             default: false
         }
     },
-    profilePhotoUrl: String,
+    profilePhotoUrl: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         minlength: 6
@@ -60,7 +63,7 @@ UserSchema.methods.toJSON = function () {
     var userObject = user.toObject()
 
     return _.pick(userObject, 
-        ['_id','email'])
+        ['_id','email', 'profilePhotoUrl'])
 }
 
 UserSchema.methods.generateAuthToken = function () {
