@@ -68,7 +68,7 @@ let getById = (req, res) => {
 
 let addTeacher = async (req, res) => {
     try {
-        const body = _.pick(req.body, ['email','password', 'name', 'cpf', 'instruments', 'cellPhone', 'address', 'operationalArea'])
+        const body = _.pick(req.body, ['email','password', 'profilePhotourl', 'name', 'cpf', 'instruments', 'cellPhone', 'address', 'operationalArea'])
         const teacher = new Teacher(body)
         await teacher.save()
         const token = await teacher.generateAuthToken()
