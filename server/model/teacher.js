@@ -33,7 +33,7 @@ TeacherSchema.methods.toJSON = function () {
     var userObject = user.toObject()
 
     return _.pick(userObject, 
-        ['_id','name','email', 'cpf', 'instruments', 'cellPhone', 'address', 'operationalArea'])
+        ['_id','name','email', 'cpf', 'instruments', 'profilePhotourl', 'cellPhone', 'address', 'operationalArea'])
 }
 
 TeacherSchema

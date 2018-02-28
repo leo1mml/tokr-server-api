@@ -27,6 +27,7 @@ var UserSchema = new mongoose.Schema({
             default: false
         }
     },
+    profilePhotoUrl: String,
     password: {
         type: String,
         minlength: 6
