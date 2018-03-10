@@ -28,12 +28,12 @@ var UserSchema = new mongoose.Schema({
         }
     },
     profilePhotoUrl: {
-        type: String,
-        required: true
+        type: String
     },
     password: {
         type: String,
-        minlength: 6
+        minlength: 6,
+        required: true
     },
     name: {
         type: String,

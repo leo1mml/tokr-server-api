@@ -12,16 +12,14 @@ const TeacherSchema = new mongoose.Schema({
     },
     instruments: {
         type: [String],
-        minlength: 1,
-        required: true 
+        minlength: 1
     },
     cellPhone: {
         type: String,
         required: true
     },
     address: {
-        type: [String],
-        required: true
+        type: [String]
     },
     operationalArea:{
         type: [String]

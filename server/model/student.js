@@ -15,16 +15,13 @@ const StudentSchema = mongoose.Schema({
         required: true
     },
     birthDate: {
-        type: Date,
-        required: true
+        type: Date
     },
     sex: {
-        type: Number,
-        required: true
+        type: Number
     },
     address: {
-        type: [String],
-        required: true
+        type: [String]
     },
     cellPhone: {
         type: String,
