@@ -25,7 +25,8 @@ const StudentSchema = mongoose.Schema({
     },
     cellPhone: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     instruments: {
         type: [String]
