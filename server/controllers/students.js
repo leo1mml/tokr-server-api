@@ -57,7 +57,7 @@ let getById = (req, res) => {
         return res.status(404).send()
     }
 
-    Class.findById(id).then((student) => {
+    Student.findById(id).then((student) => {
         if(!student){
             return res.status(404).send()
         }
