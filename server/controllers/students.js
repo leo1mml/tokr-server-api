@@ -101,7 +101,7 @@ let getMe = (req, res) => {
 let createLogin = async (req, res) => {
     try {
         const body = _.pick(req.body, ['email','password'])
-        const student = await Class.findByCredentials(body.email, body.password)
+        const student = await Student.findByCredentials(body.email, body.password)
         const token = await student.generateAuthToken()
         res.header('x-auth', token).send({student})
     } catch (e) {
