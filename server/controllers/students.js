@@ -49,6 +49,28 @@ let patchMe = async (req, res) => {
     }
 }
 
+let patch = async (req, res) => {
+    let id = req.params.id
+    let body = req.body
+    if(!ObjectID.isValid(id)){
+        return res.status(404).send()
+    }
+    try{
+        let student = await Student.findOneAndUpdate({_id: id},
+            {
+                $set: body
+            },{
+                new: true
+            })
+        if(!student){
+            res.status(404).send()
+        }
+        res.status(200).send({student})
+    }catch (error) {
+        res.status(400).send({error})
+    }
+}
+
 let getById = (req, res) => {
     
     let id = req.params.id
@@ -155,5 +177,6 @@ module.exports = {
     logout,
     patchMe,
     changePassword,
-    changePasswordAuth
+    changePasswordAuth,
+    patch
 }

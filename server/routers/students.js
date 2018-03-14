@@ -35,6 +35,9 @@ router.post('/login',appPass, (req, res) => studentController.createLogin(req, r
 // Route to patch an student by id
 router.patch('/patchMe',appPass, authenticate, (req, res) => studentController.patchMe(req, res))
 
+// Route to patch a teacher by id
+router.patch('/patch/:id',appPass, (req, res) => studentController.patch(req, res))
+
 // Route to change student password if lost password
 router.post('/changePassword/:token',appPass, (req, res) => studentController.changePassword(req, res))
 
