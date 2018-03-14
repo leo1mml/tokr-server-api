@@ -20,7 +20,7 @@ let getAll = (req, res) => {
 
 let patchMe = async (req, res) => {
     let id = req.teacher._id
-    var body = _.pick(req.body, ['name', 'profilePhotoUrl', 'cpf', 'instruments', 'cellPhone', 'address', 'operationalArea'])
+    var body = _.pick(req.body, ['email','password', 'profilePhotoUrl', 'name', 'cpf', 'instruments', 'cellPhone', 'address', 'operationalArea'])
     if(!ObjectID.isValid(id)){
         return res.status(404).send()
     }
@@ -30,6 +30,27 @@ let patchMe = async (req, res) => {
         var endRes = splitResult[splitResult.length - 1]
         var idCloud = endRes.substring(0, endRes.length -4)
         cloudinary.v2.api.delete_resources([idCloud], function(error, result){console.log(result);});
+    }
+    try{
+        let teacher = await Teacher.findOneAndUpdate({_id: id},
+            {
+                $set: body
+            },{
+                new: true
+            })
+        if(!teacher){
+            res.status(404).send()
+        }
+        res.status(200).send({teacher})
+    }catch (error) {
+        res.status(400).send({error})
+    }
+}
+let patch = async (req, res) => {
+    let id = req.params.id
+    let body = req.body
+    if(!ObjectID.isValid(id)){
+        return res.status(404).send()
     }
     try{
         let teacher = await Teacher.findOneAndUpdate({_id: id},
@@ -153,5 +174,6 @@ module.exports = {
     logout,
     patchMe,
     changePassword,
-    changePasswordAuth
+    changePasswordAuth,
+    patch
 }

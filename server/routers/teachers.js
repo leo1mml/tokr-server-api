@@ -32,8 +32,11 @@ router.delete('/deleteById/:id',appPass, (req, res) => teacherController.deleteB
 // Login route
 router.post('/login',appPass, (req, res) => teacherController.createLogin(req, res))
 
-// Route to patch an teacher by id
+// Route to patch a teacher
 router.patch('/patchMe',appPass, authenticate, (req, res) => teacherController.patchMe(req, res))
+
+// Route to patch a teacher by id
+router.patch('/patch/:id',appPass, (req, res) => teacherController.patch(req, res))
 
 // Route to change teacher password if lost password
 router.post('/changePassword/:token',appPass, (req, res) => teacherController.changePassword(req, res))
