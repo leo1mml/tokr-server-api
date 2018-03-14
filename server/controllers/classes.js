@@ -18,6 +18,44 @@ let getAll = (req, res) => {
     })
 }
 
+let getClassesFromStudent = async (req, res) => {
+    let id = req.params.id
+    try {
+        let classes = await Class.find({
+            _studentId: id
+        })
+        return({classes})
+    }catch (error) {
+        res.status(400).send({error})
+    } 
+}
+let getClassesFromTeacher = async (req, res) => {
+    let id = req.params.id
+    try {
+        let classes = await Class.find({
+            _teacherId: id
+        })
+        return({classes})
+    }catch (error) {
+        res.status(400).send({error})
+    } 
+}
+
+let getClassesFromStudentAndTeacher = async (req, res) => {
+    let studentId = req.params.studentId
+    let teacherId = req.params.teacherId
+    try{
+        let classes = await Class.find({
+            _teacherId: teacherId,
+            _studentId: studentId
+        })
+        return ({classes})
+    }catch(error){
+        console.log(error);
+        res.status(400).send({error})
+    }
+}
+
 let patchMe = async (req, res) => {
     let id = req.class._id
     console.log(id);
@@ -132,7 +170,7 @@ let changePassword = async (req, res) => {
     }
 }
 
-let changePasswordAuth = async(req, res) => {
+let changePasswordAuth = async (req, res) => {
     let tempClass = req.class
     try {
         const completeClass = await Class.findByCredentials(tempClass.email, req.body.oldPassword)
@@ -154,5 +192,8 @@ module.exports = {
     logout,
     patchMe,
     changePassword,
-    changePasswordAuth
+    changePasswordAuth,
+    getClassesFromStudent,
+    getClassesFromTeacher,
+    getClassesFromStudentAndTeacher
 }

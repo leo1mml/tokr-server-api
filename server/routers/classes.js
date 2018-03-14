@@ -41,4 +41,10 @@ router.post('/changePassword/:token',appPass, (req, res) => classesController.ch
 // Route to change class password if authenticated
 router.post('/changePasswordAuth',appPass,authenticate , (req, res) => classesController.changePasswordAuth(req, res))
 
+router.get('/classesForTeacher/:id', appPass, (req, res) => classesController.getClassesFromTeacher(req, res))
+
+router.get('/classesForStudent/:id', appPass, (req, res) => classesController.getClassesFromStudent(req, res))
+
+router.get('/classesForStudentAndTeacher/:studentId/:teacherId', appPass, (req, res) => classesController.getClassesFromStudentAndTeacher(req, res))
+
 module.exports = router
