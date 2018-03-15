@@ -128,7 +128,8 @@ let createLogin = async (req, res) => {
         const token = await student.generateAuthToken()
         res.header('x-auth', token).send({student})
     } catch (e) {
-        res.status(401).send()
+        console.log(error);
+        res.status(400).send(error)
     }
 }
 
