@@ -109,8 +109,7 @@ let addClass = async (req, res) => {
         const body = _.pick(req.body, ['date','teacherGrade','studentGrade','instrument','studentNote','teacherNote','_studentId', '_teacherId'])
         const tempClass = new Class(body)
         await tempClass.save()
-        const token = await tempClass.generateAuthToken()
-        res.header('x-auth', token).send({tempClass})
+        res.send({tempClass})
     } catch (error) {
         console.log(error);
         res.status(400).send({error})
