@@ -11,8 +11,8 @@ const {Class} = require('./../model/class')
 
 let getAll = (req, res) => {
     
-    Class.find().then((tempClass) => {
-        res.send({tempClass})
+    Class.find().then((tempClasses) => {
+        res.send({tempClasses})
     }, (error) => {
         res.status(400).send(error)
     })
@@ -24,7 +24,7 @@ let getClassesFromStudent = async (req, res) => {
         let classes = await Class.find({
             _studentId: id
         })
-        return({classes})
+        res.send({classes})
     }catch (error) {
         res.status(400).send({error})
     } 
@@ -35,7 +35,7 @@ let getClassesFromTeacher = async (req, res) => {
         let classes = await Class.find({
             _teacherId: id
         })
-        return({classes})
+        res.send({classes})
     }catch (error) {
         res.status(400).send({error})
     } 
