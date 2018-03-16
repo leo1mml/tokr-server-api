@@ -9,6 +9,7 @@ const users = require('./routers/users')
 const teachers = require('./routers/teachers')
 const students = require('./routers/students')
 const classes = require('./routers/classes')
+const admin = require('./routers/admin')
 const publicPath = path.join(__dirname, '../public');
 
 let port = process.env.PORT
@@ -33,6 +34,7 @@ app.use('/users', users)
 app.use('/teachers', teachers)
 app.use('/students', students)
 app.use('/classes', classes)
+app.use('/admin', admin)
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
