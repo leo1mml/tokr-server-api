@@ -30,7 +30,7 @@ router.get('/id/:id',appPass, (req, res) => classesController.getById(req, res))
 router.delete('/deleteById/:id',appPass, (req, res) => classesController.deleteById(req, res))
 
 // Login route
-router.post('/login',appPass, (req, res) => classesController.createLogin(req, res))
+router.post('/login',appPass, (req, res) => classesController.createLogin(req, res)) 
 
 // Route to patch an class by id
 router.patch('/patchMe',appPass, authenticate, (req, res) => classesController.patchMe(req, res))
