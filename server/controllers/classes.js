@@ -57,18 +57,10 @@ let getClassesFromStudentAndTeacher = async (req, res) => {
 }
 
 let patchMe = async (req, res) => {
-    let id = req.class._id
-    console.log(id);
+    let id = req.params._id
     var body = _.pick(req.body, ['date','teacherGrade','studentGrade','instrument','studentNote','teacherNote','_studentId', '_teacherId'])
     if(!ObjectID.isValid(id)){
         return res.status(404).send()
-    }
-    if(body.profilePhoto){
-        let url = req.class.profilePhoto
-        var splitResult = url.split("/");
-        var endRes = splitResult[splitResult.length - 1]
-        var idCloud = endRes.substring(0, endRes.length -4)
-        cloudinary.v2.api.delete_resources([idCloud], function(error, result){console.log(result);});
     }
     try{
         let tempClass = await tempClass.findOneAndUpdate({_id: id},

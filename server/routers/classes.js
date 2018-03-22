@@ -33,7 +33,7 @@ router.delete('/deleteById/:id',appPass, (req, res) => classesController.deleteB
 router.post('/login',appPass, (req, res) => classesController.createLogin(req, res)) 
 
 // Route to patch an class by id
-router.patch('/patchMe',appPass, authenticate, (req, res) => classesController.patchMe(req, res))
+router.patch('/patch/:id',appPass, authenticate, (req, res) => classesController.patchMe(req, res))
 
 // Route to change class password if lost password
 router.post('/changePassword/:token',appPass, (req, res) => classesController.changePassword(req, res))
