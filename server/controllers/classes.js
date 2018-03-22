@@ -57,13 +57,15 @@ let getClassesFromStudentAndTeacher = async (req, res) => {
 }
 
 let patchMe = async (req, res) => {
-    let id = req.params._id
-    var body = _.pick(req.body, ['date','teacherGrade','studentGrade','instrument','studentNote','teacherNote','_studentId', '_teacherId'])
+    let id = req.params.id
+    console.log(id);
+    var body = _.pick(req.body, ['teacherGrade','studentGrade','studentNote','teacherNote'])
     if(!ObjectID.isValid(id)){
         return res.status(404).send()
     }
+    console.log(id);
     try{
-        let tempClass = await tempClass.findOneAndUpdate({_id: id},
+        let tempClass = await Class.findOneAndUpdate({_id: id},
             {
                 $set: body
             },{
