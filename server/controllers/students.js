@@ -27,7 +27,7 @@ let patchMe = async (req, res) => {
         return res.status(404).send()
     }
     if(body.profilePhotoUrl){
-        let url = req.student.profilePhoto
+        let url = req.student.profilePhotoUrl
         var splitResult = url.split("/");
         var endRes = splitResult[splitResult.length - 1]
         var idCloud = endRes.substring(0, endRes.length -4)
