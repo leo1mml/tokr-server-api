@@ -22,11 +22,11 @@ let getAll = (req, res) => {
 let patchMe = async (req, res) => {
     let id = req.student._id
     console.log(id);
-    var body = _.pick(req.body, ['name','cpf','birthDate', 'sex', 'instruments', 'cellPhone', 'address', 'musicStyles'])
+    var body = _.pick(req.body, ['name', 'profilePhotoUrl','cpf','birthDate', 'sex', 'instruments', 'cellPhone', 'address', 'musicStyles'])
     if(!ObjectID.isValid(id)){
         return res.status(404).send()
     }
-    if(body.profilePhoto){
+    if(body.profilePhotoUrl){
         let url = req.student.profilePhoto
         var splitResult = url.split("/");
         var endRes = splitResult[splitResult.length - 1]

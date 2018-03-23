@@ -24,8 +24,8 @@ let patchMe = async (req, res) => {
     if(!ObjectID.isValid(id)){
         return res.status(404).send()
     }
-    if(body.profilePhoto){
-        let url = req.teacher.profilePhoto
+    if(body.profilePhotoUrl){
+        let url = req.teacher.profilePhotoUrl
         var splitResult = url.split("/");
         var endRes = splitResult[splitResult.length - 1]
         var idCloud = endRes.substring(0, endRes.length -4)
