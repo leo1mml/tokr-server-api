@@ -54,6 +54,9 @@ var UserSchema = new mongoose.Schema({
             required: true
         }
     }],
+    status: {
+        type: String
+    },
     passwordRecoverToken: String,
     passwordRecoverTokenExpireDate: Date
 }, baseOptions)
@@ -63,7 +66,7 @@ UserSchema.methods.toJSON = function () {
     var userObject = user.toObject()
 
     return _.pick(userObject, 
-        ['_id','email', 'profilePhotoUrl'])
+        ['_id','email', 'profilePhotoUrl', 'status'])
 }
 
 UserSchema.methods.generateAuthToken = function () {
