@@ -22,7 +22,7 @@ let getAll = (req, res) => {
 let patchMe = async (req, res) => {
     let id = req.student._id
     console.log(id);
-    var body = _.pick(req.body, ['name', 'profilePhotoUrl','cpf','birthDate', 'sex', 'instruments', 'cellPhone', 'address', 'musicStyles'])
+    var body = _.pick(req.body, ['name', 'about', 'profilePhotoUrl','cpf','birthDate', 'sex', 'instruments', 'cellPhone', 'address', 'musicStyles'])
     if(!ObjectID.isValid(id)){
         return res.status(404).send()
     }
@@ -92,7 +92,7 @@ let getById = (req, res) => {
 
 let addStudent = async (req, res) => {
     try {
-        const body = _.pick(req.body, ['email','password', 'name', 'cpf','birthDate', 'sex', 'instruments', 'cellPhone', 'address', 'musicStyles'])
+        const body = _.pick(req.body, ['email','password', 'name', 'about', 'cpf','birthDate', 'sex', 'instruments', 'cellPhone', 'address', 'musicStyles'])
         const student = new Student(body)
         await student.save()
         const token = await student.generateAuthToken()

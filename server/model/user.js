@@ -40,6 +40,9 @@ var UserSchema = new mongoose.Schema({
         minlength: 2,
         required: true
     },
+    about: {
+        type: String
+    },
     createdAt: {
         type: Date,
         default: new Date()
@@ -66,7 +69,7 @@ UserSchema.methods.toJSON = function () {
     var userObject = user.toObject()
 
     return _.pick(userObject, 
-        ['_id','email', 'profilePhotoUrl', 'status'])
+        ['_id','email', 'about', 'profilePhotoUrl', 'status'])
 }
 
 UserSchema.methods.generateAuthToken = function () {

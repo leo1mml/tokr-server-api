@@ -40,7 +40,7 @@ StudentSchema.methods.toJSON = function () {
     var userObject = user.toObject()
 
     return _.pick(userObject, 
-        ['_id','email','name', 'status', 'profilePhotoUrl', 'cpf','birthDate', 'sex', 'instruments', 'cellPhone', 'address', 'musicStyles'])
+        ['_id','email','name', 'about', 'status', 'profilePhotoUrl', 'cpf','birthDate', 'sex', 'instruments', 'cellPhone', 'address', 'musicStyles'])
 }
 
 
