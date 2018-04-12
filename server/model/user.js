@@ -58,7 +58,8 @@ var UserSchema = new mongoose.Schema({
         }
     }],
     status: {
-        type: String
+        type: String,
+        default: "pendente"
     },
     passwordRecoverToken: String,
     passwordRecoverTokenExpireDate: Date
