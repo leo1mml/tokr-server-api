@@ -18,6 +18,9 @@ const TeacherSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    birthDate: {
+        type: Date
+    },
     address: {
         type: [String]
     },
@@ -32,7 +35,7 @@ TeacherSchema.methods.toJSON = function () {
     console.log("TO OBJECT",userObject);
 
     return _.pick(userObject, 
-        ['_id','name','email','about', 'status', 'cpf', 'instruments', 'profilePhotoUrl', 'cellPhone', 'address', 'operationalArea'])
+        ['_id','name', 'birthDate','email','about', 'status', 'cpf', 'instruments', 'profilePhotoUrl', 'cellPhone', 'address', 'operationalArea'])
 }
 
 TeacherSchema
