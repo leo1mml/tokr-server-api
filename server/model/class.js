@@ -24,6 +24,9 @@ var ClassSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    description: {
+        type: String
+    },
     studentNote: {
         type: String
     },
