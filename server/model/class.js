@@ -47,7 +47,7 @@ ClassSchema.methods.toJSON = function() {
     var photo = this
     var photoObject = photo.toObject()
 
-    return _.pick(photoObject, ['_id','date','teacherGrade','studentGrade','instrument','studentNote','teacherNote','_studentId', '_teacherId'])
+    return _.pick(photoObject, ['_id','date','teacherGrade','studentGrade', 'description','instrument','studentNote','teacherNote','_studentId', '_teacherId'])
 }
 
 var Class = mongoose.model('Class', ClassSchema)

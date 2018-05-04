@@ -59,7 +59,7 @@ let getClassesFromStudentAndTeacher = async (req, res) => {
 let patchMe = async (req, res) => {
     let id = req.params.id
     console.log(id);
-    var body = _.pick(req.body, ['teacherGrade','studentGrade','studentNote','teacherNote'])
+    var body = _.pick(req.body, ['teacherGrade','studentGrade', 'description','studentNote','teacherNote'])
     if(!ObjectID.isValid(id)){
         return res.status(404).send()
     }
@@ -100,7 +100,7 @@ let getById = (req, res) => {
 
 let addClass = async (req, res) => {
     try {
-        const body = _.pick(req.body, ['date','teacherGrade','studentGrade','instrument','studentNote','teacherNote','_studentId', '_teacherId'])
+        const body = _.pick(req.body, ['date','teacherGrade','studentGrade','instrument', 'description','studentNote','teacherNote','_studentId', '_teacherId'])
         const tempClass = new Class(body)
         await tempClass.save()
         res.send({tempClass})
