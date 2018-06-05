@@ -40,9 +40,4 @@ app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
 })
 
-var http = require('http')
-setInterval(() => {
-  http.get('http://tokr-server-api.herokuapp.com/index.html')
-}, 300000)
-
 module.exports = {app}
