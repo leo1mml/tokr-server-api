@@ -10,14 +10,14 @@ const teachers = require('./routers/teachers')
 const students = require('./routers/students')
 const classes = require('./routers/classes')
 const admin = require('./routers/admin')
-const publicPath = path.join(__dirname, '../public');
+// const publicPath = path.join(__dirname, '../public');
 
 let port = process.env.PORT
 let app = express()
 
  
 app.use(bodyParser.json())
-app.use(express.static(publicPath));
+// app.use(express.static(publicPath));
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin','*')
